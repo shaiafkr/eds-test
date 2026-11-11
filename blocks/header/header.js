@@ -383,6 +383,12 @@ function decorateMenu(list, depth, labels) {
     li.classList.add('nav-item');
     let link = li.querySelector(':scope > a');
     const label = li.querySelector(':scope > p');
+    // Document Authoring wraps list-item links in a paragraph (li > p > a): unwrap it.
+    const wrapped = !link && label && label.querySelector(':scope > a');
+    if (wrapped) {
+      label.replaceWith(wrapped);
+      link = wrapped;
+    }
     if (!link && label) {
       link = el('a', '', { href: '#' });
       link.textContent = text(label);
