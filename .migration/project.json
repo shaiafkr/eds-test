@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "eds-test": {
+      "previewOrg": "shaiafkr",
+      "previewSite": "eds-test",
+      "contentHostUrl": "https://content.da.live/shaiafkr/eds-test/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

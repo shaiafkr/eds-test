@@ -1,0 +1,10 @@
+{
+  "variantName": "fragment",
+  "baseBlock": "fragment",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:19:18.000Z",
+  "description": "Includes shared content from another page (a fragment) by its path.",
+  "contentPattern": {
+    "structure": "single-cell link to fragment path"
+  }
+}

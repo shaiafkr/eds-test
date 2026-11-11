@@ -1,3 +1,10 @@
+/* source .detail-div keeps 40px above (gallery/photo) and below at every width; the bottom
+   space is padding so it does not collapse into the footer's own 35px top margin */
+.columns {
+  margin-top: 40px;
+  padding-bottom: 40px;
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -30,4 +37,32 @@
     flex: 1;
     order: unset;
   }
+}
+
+/* text-only rows (no image column): source lays the two text columns side by side at every
+   width, top-aligned, with a 16px (1em) gutter */
+.columns > div:not(:has(> .columns-img-col)) {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.columns > div:not(:has(> .columns-img-col)) > div {
+  flex: 1;
+  min-width: 0;
+}
+
+/* in-cell table: equal-width columns spanning the cell, header row text at 600 */
+.columns table {
+  margin-bottom: 0;
+  table-layout: fixed;
+}
+
+.columns table strong {
+  font-weight: 600;
+}
+
+/* source renders emphasis upright (e.g. the "UNESCO World Heritage Site" kicker) */
+.columns em {
+  font-style: normal;
 }

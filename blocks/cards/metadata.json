@@ -1,0 +1,20 @@
+{
+  "variantName": "cards",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:19:18.000Z",
+  "description": "Grid of cards, each with an image and a text body (title, description, optional link).",
+  "visualCharacteristics": {
+    "purpose": "feature-grid",
+    "imagePattern": "image-top"
+  },
+  "contentPattern": {
+    "structure": "image-body repeating",
+    "imageCount": 1
+  },
+  "usage": {
+    "pagesUsing": ["index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-11T08:19:18.000Z"
+  }
+}

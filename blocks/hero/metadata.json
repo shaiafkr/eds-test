@@ -1,0 +1,16 @@
+{
+  "variantName": "hero",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:19:18.000Z",
+  "description": "Full-width hero with a background image and a large heading.",
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "purpose": "hero",
+    "imagePattern": "background"
+  },
+  "contentPattern": {
+    "structure": "background-image heading single-cell",
+    "imageCount": 1
+  }
+}

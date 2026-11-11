@@ -1,0 +1,27 @@
+{
+  "variantName": "listing-filter",
+  "baseBlock": "custom",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:45:00.000Z",
+  "description": "Listing title with a category dropdown that filters the cards-listing block on the same page.",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "heading + field",
+    "purpose": "title and category filter for a cards-listing"
+  },
+  "contentPattern": {
+    "structure": "a row with the listing heading (e.g. Tourist Places), then an optional row \"Filter\" | comma-separated categories (or a list). Without the options row the dropdown lists the categories found on the cards-listing cards; an \"All\" entry is always first",
+    "imageCount": 0
+  },
+  "options": [],
+  "memberVariantIds": ["v_f848f7a6d116"],
+  "usage": {
+    "pagesUsing": ["https://agra.nic.in/tourist-places/"],
+    "reuseCount": 1
+  },
+  "reuseGuidance": "Place directly above a cards-listing block. It filters every cards-listing on the page by the cards' Category line; it has no effect on other blocks."
+}

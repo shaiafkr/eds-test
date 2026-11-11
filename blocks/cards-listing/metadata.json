@@ -1,0 +1,27 @@
+{
+  "variantName": "cards-listing",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:45:00.000Z",
+  "description": "Paginated grid of listing cards (image, linked title, category line, teaser, share links) that a listing-filter block can filter by category.",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "dense",
+    "hasGrid": true,
+    "imagePattern": "image-top",
+    "structure": "list + link + image + heading + text",
+    "purpose": "filterable, paginated listing of detail pages (e.g. tourist places)"
+  },
+  "contentPattern": {
+    "structure": "one row per card: image cell | body cell (linked heading, a line starting with \"Category\" followed by comma-separated categories, teaser text) | optional footer cell with share links. 10 cards show per page; extra cards page automatically",
+    "imageCount": 1
+  },
+  "options": [],
+  "memberVariantIds": ["v_30b22cdff324"],
+  "usage": {
+    "pagesUsing": ["https://agra.nic.in/tourist-places/"],
+    "reuseCount": 1
+  },
+  "reuseGuidance": "Use for index pages listing many detail pages. Pair with listing-filter above it to filter by the Category line. For a small, static feature grid use cards instead."
+}

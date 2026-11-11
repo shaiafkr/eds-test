@@ -1,0 +1,125 @@
+/*
+ * table-data: source (agra.nic.in, basictable plugin) values.
+ * Below 768px each row becomes a stacked card: one line per cell, bold "Header:" label
+ * at 40% width, 1px #ddd rule under every cell, even rows on #f2f2f2, header row hidden.
+ * From 768px it is a regular table: #d2dfff header row with 5px rounded ends,
+ * 14.4px/600 #162f6a headings, 1px #ddd rule above each data row.
+ */
+
+.table-data {
+  color: var(--text-color);
+}
+
+.table-data .table-data-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-data table {
+  display: block;
+  width: 100%;
+  margin: 0;
+  word-break: break-all;
+}
+
+.table-data thead {
+  display: none;
+}
+
+.table-data tbody,
+.table-data tr {
+  display: block;
+}
+
+.table-data tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-data td {
+  display: flex;
+  border-top: 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: var(--body-font-size-m);
+}
+
+.table-data td::before {
+  content: attr(data-th) ": ";
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 40%;
+  padding-right: 1em;
+  font-weight: 700;
+}
+
+.table-data td:not([data-th])::before {
+  content: none;
+}
+
+.table-data .table-data-value {
+  min-width: 0;
+}
+
+.table-data th p,
+.table-data td p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.table-data td p + p {
+  margin-top: 0.25em;
+}
+
+@media (width >= 768px) {
+  .table-data table {
+    display: table;
+    word-break: normal;
+  }
+
+  .table-data thead {
+    display: table-header-group;
+  }
+
+  .table-data tbody {
+    display: table-row-group;
+  }
+
+  .table-data tr {
+    display: table-row;
+  }
+
+  .table-data tbody tr:nth-child(even) {
+    background-color: transparent;
+  }
+
+  .table-data th {
+    padding: 10px 15px;
+    border-top: 0;
+    background-color: var(--accent-light-color);
+    color: var(--accent-color);
+    font-size: var(--body-font-size-s);
+    font-weight: 600;
+  }
+
+  .table-data th:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  .table-data th:last-child {
+    border-radius: 0 5px 5px 0;
+  }
+
+  .table-data th:only-child {
+    border-radius: 5px;
+  }
+
+  .table-data td {
+    display: table-cell;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 0;
+  }
+
+  .table-data td::before {
+    content: none;
+  }
+}

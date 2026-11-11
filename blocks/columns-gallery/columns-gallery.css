@@ -1,0 +1,109 @@
+/*
+ * Columns Gallery
+ * Source is a bootstrap col-12 (padding 0 15px inside a -15px row) holding a gallery grid:
+ * figures with a 1px #eee border, 10px gutters. Mobile stacks 3:2 images with 5px corners;
+ * desktop puts the featured image (spanning two 250px rows) beside a 2-column thumb grid
+ * (2fr 1fr 1fr), rounding only the outer corners (10px).
+ */
+.columns-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin: 0 -15px;
+  padding: 0 15px;
+  color: rgb(21 2 2);
+}
+
+.columns-gallery .columns-gallery-thumbs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.columns-gallery .columns-gallery-item {
+  margin: 0;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.columns-gallery .columns-gallery-item picture {
+  display: block;
+}
+
+.columns-gallery .columns-gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.columns-gallery .columns-gallery-item figcaption {
+  padding: 5px 10px;
+}
+
+@media (width >= 900px) {
+  .columns-gallery {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: 250px;
+  }
+
+  /* thumbs join the block grid so they share its 2fr 1fr 1fr tracks */
+  .columns-gallery .columns-gallery-thumbs {
+    display: contents;
+  }
+
+  .columns-gallery .columns-gallery-main {
+    grid-row: span 2;
+  }
+
+  .columns-gallery.columns-gallery-single {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .columns-gallery.columns-gallery-single .columns-gallery-main {
+    grid-row: auto;
+  }
+
+  .columns-gallery .columns-gallery-item {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .columns-gallery .columns-gallery-item picture {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .columns-gallery .columns-gallery-item img {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .columns-gallery.columns-gallery-single .columns-gallery-item img {
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  /* outer corners: featured image on the left, top-right / bottom-right thumbs */
+  .columns-gallery .columns-gallery-main .columns-gallery-item {
+    border-radius: 10px 0 0 10px;
+  }
+
+  .columns-gallery .columns-gallery-thumbs .columns-gallery-item:nth-child(2) {
+    border-top-right-radius: 10px;
+  }
+
+  .columns-gallery .columns-gallery-thumbs .columns-gallery-item:nth-child(4) {
+    border-bottom-right-radius: 10px;
+  }
+
+  .columns-gallery.columns-gallery-single .columns-gallery-main .columns-gallery-item {
+    border-radius: 10px;
+  }
+}

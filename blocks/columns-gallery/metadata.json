@@ -1,0 +1,35 @@
+{
+  "variantName": "columns-gallery",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:45:00.000Z",
+  "description": "Photo gallery: one large featured image on the left, smaller images in a grid on the right (stacked on mobile).",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": true,
+    "imagePattern": "image-only",
+    "structure": "image",
+    "purpose": "photo gallery for a tourist-place page"
+  },
+  "contentPattern": {
+    "structure": "images only, in any rows or cells (typically one row: featured image | further images). The first image is featured; the rest form the thumbnail grid. Text in an image's cell becomes its caption",
+    "imageCount": 3
+  },
+  "options": [],
+  "memberVariantIds": ["v_cb889e8f7bf3"],
+  "usage": {
+    "pagesUsing": [
+      "https://agra.nic.in/tourist-place/agra-fort/",
+      "https://agra.nic.in/tourist-place/akbars-tomb-sikandra/",
+      "https://agra.nic.in/tourist-place/fatehpur-sikri/",
+      "https://agra.nic.in/tourist-place/mehtab-bagh/",
+      "https://agra.nic.in/tourist-place/ram-bagh-bagh-i-gul-afshan/",
+      "https://agra.nic.in/tourist-place/tajmahal/",
+      "https://agra.nic.in/tourist-place/tomb-of-itimad-ud-daulah-baby-taj/"
+    ],
+    "reuseCount": 7
+  },
+  "reuseGuidance": "Use for an image-only photo set. For text beside an image use columns."
+}

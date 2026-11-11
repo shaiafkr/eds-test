@@ -1,0 +1,60 @@
+/*
+ * Brand tokens for the Agra district portal (agra.nic.in, NIC S3WaaS "dbim" theme, style-1).
+ * Values come from computed styles on https://agra.nic.in/tourist-place/agra-fort/
+ * (see migration-work/brand.json). The source does not scale type down on mobile,
+ * so mobile and desktop sizes are the same.
+ */
+
+:root {
+  /* colors */
+  --background-color: #fff;
+  --text-color: #150202;
+  --link-color: #2273b9;
+  --link-hover-color: #2273b9;
+  --link-strong-color: #0c1c40;
+  --accent-color: #162f6a;
+  --accent-color-2: #214aab;
+  --accent-light-color: #d2dfff;
+  --border-color: #ddd;
+  --light-color: #f1f1f1;
+  --dark-color: #162f6a;
+  --focus-color: #1e90ff;
+
+  /* fonts */
+  --body-font-family: 'Noto Sans', noto-sans-fallback, sans-serif;
+  --heading-font-family: 'Noto Sans', noto-sans-fallback, sans-serif;
+  --heading-font-weight: 700;
+
+  /* body sizes */
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14.4px;
+  --body-font-size-xs: 14px;
+  --body-line-height: 1.5;
+
+  /* heading sizes (h1-h6 = 2em, 1.7em, 1.5em, 1.3em, 1.1em, 1em of 16px) */
+  --heading-font-size-xxl: 32px;
+  --heading-font-size-xl: 27.2px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20.8px;
+  --heading-font-size-s: 17.6px;
+  --heading-font-size-xs: 16px;
+  --heading-margin: 15px 0;
+
+  /* spacing */
+  --content-max-width: 1250px;
+  --content-padding: 15px;
+  --section-spacing: 0;
+  --breadcrumb-spacing: 20px;
+
+  /* banner strip (first section image) */
+  --banner-height: 125px;
+
+  /* header reserved space: real migrated header height (254px below 600px, 206px above) */
+  --nav-height: 254px;
+}
+
+@media (width >= 600px) {
+  :root {
+    --nav-height: 206px;
+  }
+}

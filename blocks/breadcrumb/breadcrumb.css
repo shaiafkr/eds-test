@@ -1,0 +1,117 @@
+.breadcrumb.breadcrumb-empty {
+  display: none;
+}
+
+/* trail (source: .breadcrumb-outer .left-content #breadcam) */
+.breadcrumb {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d8d8d8;
+  color: var(--text-color);
+  font-size: var(--body-font-size-m);
+  line-height: normal;
+  text-align: center;
+}
+
+.breadcrumb nav ol,
+.breadcrumb nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0 0 5px;
+  padding: 0;
+}
+
+.breadcrumb .breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+}
+
+/* the angle separator follows each item except the current page */
+.breadcrumb .breadcrumb-item:not(:last-child)::after {
+  content: '›';
+  padding: 0 8px;
+}
+
+.breadcrumb .breadcrumb-item a:any-link {
+  color: var(--accent-color);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.breadcrumb .breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+/* alt: share row (source: .breadcrumb-outer .right-content .printShare) */
+.breadcrumb.alt {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.breadcrumb.alt nav ul {
+  gap: 7px;
+  margin: 0;
+}
+
+.breadcrumb.alt .breadcrumb-share-item a:any-link {
+  display: inline-block;
+  min-height: 30px;
+  color: #000;
+  font-size: 13.6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.breadcrumb.alt .breadcrumb-share-icon {
+  font-size: 1.4em;
+}
+
+.breadcrumb.alt .breadcrumb-share-icon svg {
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  padding: 0 3px;
+}
+
+.breadcrumb.alt .breadcrumb-share-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (width >= 900px) {
+  .breadcrumb {
+    padding: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+    text-align: start;
+  }
+
+  /* source ul margin-bottom; padding here because the block has no padding/border to stop collapse */
+  .breadcrumb nav ol,
+  .breadcrumb nav ul {
+    margin-bottom: 0;
+    padding-bottom: 10px;
+  }
+
+  .breadcrumb .breadcrumb-item {
+    padding-bottom: 15px;
+  }
+
+  .breadcrumb.alt {
+    margin: 0;
+  }
+
+  .breadcrumb.alt nav ul {
+    padding-bottom: 0;
+  }
+}

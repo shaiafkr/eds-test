@@ -1,0 +1,10 @@
+{
+  "variantName": "widget",
+  "baseBlock": "widget",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:19:18.000Z",
+  "description": "Embeds an interactive widget (HTML, CSS and JS from the widgets folder) by its link.",
+  "contentPattern": {
+    "structure": "single-cell link to widget"
+  }
+}

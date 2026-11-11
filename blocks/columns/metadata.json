@@ -1,0 +1,26 @@
+{
+  "variantName": "columns",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:19:18.000Z",
+  "description": "Side-by-side columns of text and images; each row is a set of columns.",
+  "visualCharacteristics": {
+    "purpose": "side-by-side",
+    "imagePattern": "image-column"
+  },
+  "contentPattern": {
+    "structure": "one row per set of columns; each cell is a column holding text, lists, links, a table or an image (an image-only cell becomes an image column)"
+  },
+  "usage": {
+    "pagesUsing": [
+      "index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-11T08:19:18.000Z"
+  },
+  "canonicalModel": "standalone",
+  "options": [],
+  "memberVariantIds": [
+    "v_e9e9227a7a3d"
+  ]
+}

@@ -1,0 +1,85 @@
+/*
+ * Listing Filter: listing title (h1) with a "Filter:" label and a pill select.
+ * Source is a bootstrap .row (margin 0 -15px) with col-lg-7 / col-lg-5 columns (padding 0 15px);
+ * the columns stack on mobile and sit in one row from 900px.
+ */
+.listing-filter {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  color: var(--text-color);
+}
+
+.listing-filter .listing-filter-title,
+.listing-filter .listing-filter-control {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 15px;
+}
+
+/* the h1 keeps the global heading styles: 32px / 700 / normal, margin 15px 0 */
+.listing-filter .listing-filter-title > * {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: var(--heading-font-weight);
+  line-height: normal;
+  margin: var(--heading-margin);
+}
+
+.listing-filter .listing-filter-control {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 4px;
+  margin: 15px 0 30px;
+  text-align: left;
+}
+
+.listing-filter .listing-filter-control label {
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: normal;
+  color: var(--text-color);
+}
+
+.listing-filter .listing-filter-control select {
+  box-sizing: border-box;
+  appearance: none;
+  width: 200px;
+  max-width: 100%;
+  height: 34px;
+  margin: 0;
+  padding: 6px 24px 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 17px;
+  background-color: var(--background-color);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M0 0h8L4 5z' fill='%23150202'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 7px top 10px;
+  background-size: 8px 5px;
+  color: #555;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  line-height: normal;
+  cursor: pointer;
+}
+
+.listing-filter .listing-filter-control select:focus {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 1px;
+}
+
+@media (width >= 900px) {
+  .listing-filter .listing-filter-title {
+    flex: 0 0 58.3333%;
+    max-width: 58.3333%;
+  }
+
+  .listing-filter .listing-filter-control {
+    flex: 0 0 41.6667%;
+    max-width: 41.6667%;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+    text-align: right;
+  }
+}

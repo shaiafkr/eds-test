@@ -1,0 +1,27 @@
+{
+  "variantName": "table-data",
+  "baseBlock": "table",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:45:00.000Z",
+  "description": "Plain data table with a header row (e.g. place, state, distance, tags). Scrolls horizontally on narrow screens.",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "hasGrid": false,
+    "imagePattern": "noimg",
+    "structure": "table",
+    "purpose": "tabular reference data"
+  },
+  "contentPattern": {
+    "structure": "first row is the column headers, then one row per record with one cell per column. Short rows are padded with empty cells",
+    "imageCount": 0
+  },
+  "options": [],
+  "memberVariantIds": ["v_bd7b5d632adf"],
+  "usage": {
+    "pagesUsing": ["https://agra.nic.in/places-of-interest/"],
+    "reuseCount": 1
+  },
+  "reuseGuidance": "Use for any row/column data with a header row. Do not use for layout; use columns for side-by-side content."
+}

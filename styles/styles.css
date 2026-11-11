@@ -1,3 +1,5 @@
+@import url('brand.css');
+
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -10,64 +12,16 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+/* design tokens live in brand.css */
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
-
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
-
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
-
-  /* nav height */
-  --nav-height: 64px;
-}
-
-/* fallback fonts */
+/* fallback font: metric-adjusted Arial so the Noto Sans swap does not shift layout */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
+  font-family: noto-sans-fallback;
+  size-adjust: 105.5%;
+  ascent-override: 101.3%;
+  descent-override: 27.8%;
+  line-gap-override: 0%;
   src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
-@media (width >= 900px) {
-  :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
-  }
 }
 
 body {
@@ -77,7 +31,8 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  font-weight: 400;
+  line-height: normal;
 }
 
 body.appear {
@@ -98,17 +53,18 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
+/* headings: source h1-h6 are bold Noto Sans, line-height normal, 15px block margins */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin: var(--heading-margin);
+  color: var(--text-color);
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: var(--heading-font-weight);
+  line-height: normal;
   scroll-margin: 40px;
 }
 
@@ -119,14 +75,46 @@ h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
+/* body copy: p 16px / 24px with 12px bottom margin */
 p,
 dl,
-ol,
-ul,
 pre,
 blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin: 0 0 12px;
+}
+
+p {
+  font-size: var(--body-font-size-m);
+  line-height: var(--body-line-height);
+}
+
+ol,
+ul {
+  margin: 0 0 10px;
+}
+
+/* content lists (navigation lists such as the breadcrumb style themselves) */
+main ol:not(nav *),
+main ul:not(nav *) {
+  padding: 0 0 0 20px;
+}
+
+main ul:not(nav *) {
+  list-style-type: disc;
+}
+
+main ol:not(nav *) {
+  list-style-type: decimal;
+}
+
+main li:not(nav *) {
+  padding: 0 0 15px;
+  line-height: normal;
+}
+
+strong,
+b {
+  font-weight: 700;
 }
 
 code,
@@ -142,10 +130,6 @@ pre {
   white-space: pre;
 }
 
-main > div {
-  margin: 40px 16px;
-}
-
 input,
 textarea,
 select,
@@ -153,7 +137,7 @@ button {
   font: inherit;
 }
 
-/* links */
+/* links: source content links are #2273b9, no underline and no hover change */
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
@@ -162,15 +146,66 @@ a:any-link {
 
 a:hover {
   color: var(--link-hover-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-/* buttons */
+a:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* tables: source rows are separated by a 1px #ddd top rule, cells padded 7px (15px 10px >= 900px) */
+main table {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 12px;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+main th,
+main td {
+  padding: 7px;
+  border-top: 1px solid var(--border-color);
+  font-weight: 400;
+  line-height: 1.4286;
+  text-align: left;
+  vertical-align: top;
+}
+
+main table a:any-link {
+  color: var(--accent-color);
+}
+
+/* buttons: EDS reset so unclassed authored buttons read as links */
+main .button-container,
+main .button-wrapper {
+  display: inline;
+}
+
+main a.button:any-link {
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--link-color);
+  font-size: inherit;
+  font-weight: inherit;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  white-space: normal;
+}
+
+/* source theme buttons (.btn-theme / .btn-gov / .btn-gov-border) */
 p.button-wrapper {
   margin: 12px 0;
 }
 
-a.button:any-link,
+main a.button.primary:any-link,
+main a.button.secondary:any-link,
+main a.button.accent:any-link,
 button.button {
   box-sizing: border-box;
   display: inline-flex;
@@ -178,104 +213,68 @@ button.button {
   justify-content: center;
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
-  line-height: 1.25;
+  border: 1px solid var(--accent-color);
+  border-radius: 30px;
+  padding: 5px 20px;
+  font-family: inherit;
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  line-height: 1.4286;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: 0.3s;
 }
 
-a.button[aria-disabled="true"],
+main a.button.primary:any-link,
+button.button,
+button.button.primary {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+main a.button.secondary:any-link,
+button.button.secondary {
+  border-color: #193880;
+  background-color: rgb(25 56 128 / 30%);
+  color: #193880;
+  font-weight: 700;
+}
+
+main a.button.accent:any-link,
+button.button.accent {
+  border-color: #193880;
+  background-color: #193880;
+  color: #fff;
+}
+
+main a.button.primary:any-link:hover,
+main a.button.primary:any-link:focus-visible,
+main a.button.secondary:any-link:hover,
+main a.button.secondary:any-link:focus-visible,
+main a.button.accent:any-link:hover,
+main a.button.accent:any-link:focus-visible,
+button.button:hover,
+button.button:focus-visible {
+  border-color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+main a.button:focus-visible,
+button.button:focus-visible {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+main a.button[aria-disabled="true"],
 button.button:disabled {
   cursor: not-allowed;
   pointer-events: none;
-}
-
-a.button.primary,
-button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
-}
-
-a.button.primary:hover,
-a.button.primary:focus-visible,
-button.button.primary:hover,
-button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
-}
-
-a.button.primary[aria-disabled="true"],
-a.button.primary[aria-disabled="true"]:hover,
-a.button.primary[aria-disabled="true"]:focus-visible,
-button.button.primary:disabled,
-button.button.primary:disabled:hover,
-button.button.primary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-a.button.secondary,
-button.button.secondary {
-  border-color: var(--text-color);
-  background-color: transparent;
-  color: var(--text-color);
-}
-
-a.button.secondary:hover,
-a.button.secondary:focus-visible,
-button.button.secondary:hover,
-button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-a.button.secondary[aria-disabled="true"],
-a.button.secondary[aria-disabled="true"]:hover,
-a.button.secondary[aria-disabled="true"]:focus-visible,
-button.button.secondary:disabled,
-button.button.secondary:disabled:hover,
-button.button.secondary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-/* high-impact call-to-action */
-a.button.accent,
-button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
-}
-
-a.button.accent:hover,
-a.button.accent:focus-visible,
-button.button.accent:hover,
-button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
-}
-
-a.button.accent[aria-disabled="true"],
-a.button.accent[aria-disabled="true"]:hover,
-a.button.accent[aria-disabled="true"]:focus-visible,
-button.button.accent:disabled,
-button.button.accent:disabled:hover,
-button.button.accent:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+  opacity: 0.65;
 }
 
 main img {
@@ -295,24 +294,107 @@ main img {
   width: 100%;
 }
 
-/* sections */
-main > .section {
-  margin: 40px 0;
+/* page meta line under the title ("Category > Historic"): source .show-category */
+main .default-content-wrapper > h1 + p:has(> strong:first-child) {
+  margin: 0 0 5px;
+  padding: 10px 0;
+  color: var(--accent-color-2);
+  font-size: var(--body-font-size-s);
+  line-height: normal;
 }
 
-main > .section > div {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 24px;
+main .default-content-wrapper > h1 + p:has(> strong:first-child) > strong:first-child::after {
+  content: '';
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  margin: 0 6px 0.1em 4px;
+  border-top: 1.5px solid currentcolor;
+  border-right: 1.5px solid currentcolor;
+  transform: rotate(45deg);
 }
 
-main > .section:first-of-type {
-  margin-top: 0;
+/* lone place photo after the category line (single-image gallery kept as default content):
+   matches the columns-gallery featured item - 1px #eee frame, 3:2 with 5px corners on mobile;
+   desktop takes the 2fr track of the 2fr 1fr 1fr grid (half width less two 10px gutters),
+   510px tall, left corners rounded (source .gallery-grid-item.large) */
+main .default-content-wrapper > h1 + p:has(> strong:first-child) + p:has(> picture:only-child) {
+  margin: 0;
+  line-height: 0;
+}
+
+main .default-content-wrapper > h1 + p:has(> strong:first-child) + p > picture:only-child img {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid #eee;
+  border-radius: 5px;
 }
 
 @media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
+  main .default-content-wrapper > h1 + p:has(> strong:first-child) + p > picture:only-child img {
+    width: calc((100% - 20px) / 2);
+    height: 510px;
+    aspect-ratio: auto;
+    border-radius: 10px 0 0 10px;
+  }
+}
+
+/* sections: 1280px container (1250px content + 15px gutters), stacked with no gaps like the source */
+main > .section {
+  margin: var(--section-spacing) 0;
+}
+
+main > .section > div {
+  max-width: var(--content-max-width);
+  margin: auto;
+  padding: 0 var(--content-padding);
+}
+
+/* banner strip: a lone image in the first section spans the full width at 125px tall */
+main > .section:first-of-type:has(> .default-content-wrapper:only-child > p:only-child > picture:only-child) > div {
+  max-width: none;
+  padding: 0;
+}
+
+main > .section:first-of-type > .default-content-wrapper:only-child > p:only-child:has(> picture:only-child) {
+  margin: 0;
+  line-height: 0;
+}
+
+main > .section:first-of-type > .default-content-wrapper:only-child > p:only-child > picture:only-child img {
+  display: block;
+  width: 100%;
+  height: var(--banner-height);
+  object-fit: cover;
+}
+
+/* breadcrumb row sits 20px below the banner */
+main > .section.breadcrumb-container {
+  margin-top: var(--breadcrumb-spacing);
+}
+
+/* desktop: trail on the left, share row on the right, one row (source .breadcrumb-outer) */
+@media (width >= 900px) {
+  main > .section.breadcrumb-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-inline: max(0px, calc((100% - var(--content-max-width) - 2 * var(--content-padding)) / 2));
+  }
+
+  main > .section.breadcrumb-container > div {
+    margin: 0;
+  }
+}
+
+@media (width >= 900px) {
+  main th,
+  main td {
+    padding: 15px 10px;
   }
 }
 
@@ -322,4 +404,9 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.dark {
+  background-color: var(--dark-color);
+  color: #fff;
 }

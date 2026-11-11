@@ -1,0 +1,29 @@
+{
+  "variantName": "breadcrumb",
+  "baseBlock": "custom",
+  "version": "1.0.0",
+  "created": "2026-11-11T08:45:00.000Z",
+  "description": "Breadcrumb trail (Home > Section > Current page). The alt option renders a compact row of share/social icon links instead.",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "moderate",
+    "hasGrid": true,
+    "imagePattern": "noimg",
+    "structure": "list + link",
+    "purpose": "breadcrumb navigation trail; alt is a share-links row"
+  },
+  "contentPattern": {
+    "structure": "the trail items in order: a list of links, one link per row or cell, or one line of links separated by > (the last item may be plain text for the current page). For the alt option, the share links (icons such as :facebook: and :x: inside links)",
+    "imageCount": 0
+  },
+  "options": [
+    { "class": "alt", "label": "Alt" }
+  ],
+  "memberVariantIds": ["v_020377de1074", "v_8ac43e13f7ee"],
+  "usage": {
+    "pagesUsing": ["all 18 Tourism pages (trail and share row)"],
+    "reuseCount": 18
+  },
+  "reuseGuidance": "Use the default for the page trail at the top of content pages; use alt for the small social-share link row. Both were grouped together by the catalog with low confidence; if authors prefer, either can be authored as default content instead."
+}
